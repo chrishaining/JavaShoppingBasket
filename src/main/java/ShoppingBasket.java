@@ -73,30 +73,11 @@ public class ShoppingBasket {
         return this.getTotalValue();
     }
 
-//    public void putDiscountItemsIntoSeparateList() {
-//        new ArrayList<Item> ();
-//        for (Item item : this.items) {
-//            if (item.checkBuyOneGetOneFreeStatus() == true) {
-//                this.discountedItems.add(item);
-//                this.items.remove(item);
-//            }
-//        }
-//    }
-
-//    I can use frequency to count the occurrences of a specified item - e.g. cheese - in discountedItems. So I know that frequency can work.
-//    public int frequencyOfCheese(Item item) {
-//        int frequency = Collections.frequency(this.discountedItems, item);
-//        return frequency;
-//    }
-
-    //I now want to use the frequency to do more
     public double calculateDiscountItemsValue() {
         double totalValueOfDiscountedItems = 0;
         for (Item item : this.discountedItems) {
             int frequency = Collections.frequency(this.discountedItems, item);
             if (frequency > 1) {
-//                int reducedFrequency = frequency / 2;
-//                totalValueOfDiscountedItems += item.getPrice();
                 totalValueOfDiscountedItems += (0.5 * item.getPrice());
 
             } else totalValueOfDiscountedItems += item.getPrice();
@@ -105,22 +86,21 @@ public class ShoppingBasket {
     }
 
     public double calculateTotalOfNormalAndDiscountedItems() {
-//        this.putDiscountItemsIntoSeparateList();
         double discounts = this.calculateDiscountItemsValue();
         double normals = this.calculateTotalValueOfNonDiscountedItems();
         this.totalValue = discounts + normals;
         return this.totalValue;
     }
 
-public double calculateTotalLessTenPercent() {
+    public double calculateTotalLessTenPercent() {
         this.totalValue = 0.9 * this.calculateTotalOfNormalAndDiscountedItems();
         return this.totalValue;
-}
+    }
 
 
-public double calculateTotalWithAllDiscounts() {
+    public double calculateTotalWithAllDiscounts() {
         this.totalValue = 0.98 * this.calculateTotalLessTenPercent();
         return this.totalValue;
-}
+    }
 
 }

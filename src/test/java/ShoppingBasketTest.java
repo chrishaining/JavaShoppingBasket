@@ -94,54 +94,7 @@ public class ShoppingBasketTest {
         shoppingBasket.addLoyaltyCard();
         assertEquals(true, shoppingBasket.checkLoyalty());
     }
-//
-//    @Test
-//    public void canCalculateTotalValueOfItemsWithOneItem() {
-//        shoppingBasket.addItem(cheese);
-//        assertEquals(3.50, shoppingBasket.calculateTotalValue(), 0.01);
-//    }
-//
-//    //calculate total value with multiple items, as well as a removed item
-//    @Test
-//    public void canCalculateTotalValueOfItemsSeveralItems() {
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(poshCheese);
-//        shoppingBasket.addItem(milk);
-//        shoppingBasket.removeItem(cheese);
-//        assertEquals(8.70, shoppingBasket.calculateTotalValue(), 0.01);
-//    }
 
-//    @Test
-//    public void canCalculateNumberOfDiscountedItems() {
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(poshCheese);
-//        shoppingBasket.addItem(milk);
-//        shoppingBasket.putDiscountItemsIntoSeparateList();
-//        assertEquals(2, shoppingBasket.countDiscountedItems());
-//    }
-
-//    @Test
-//    public void canCalculateValueOfDiscountedItems() {
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(poshCheese);
-//        shoppingBasket.addItem(milk);
-//        shoppingBasket.putDiscountItemsIntoSeparateList();
-//        assertEquals(3.50, shoppingBasket.calculateDiscountItemsValue(), 0.1);
-//    }
-
-//    @Test
-//    public void canCountCheese() {
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(cheese);
-//        shoppingBasket.addItem(poshCheese);
-//        shoppingBasket.addItem(milk);
-//        shoppingBasket.putDiscountItemsIntoSeparateList();
-//        assertEquals(2, shoppingBasket.frequencyOfCheese(cheese));
-//    }
-
-    //test calculate total with buy one get one free
     @Test
     public void canCalculateTotalOfNormalAndDiscountedItems() {
         shoppingBasket.addItem(cheese);
@@ -155,7 +108,6 @@ public class ShoppingBasketTest {
 
     }
 
-    //test calculate total with buy one get one free and 10% discount
     @Test
     public void canCalculateTotalLessTenPercent() {
         shoppingBasket.addItem(cheese);

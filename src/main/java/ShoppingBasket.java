@@ -65,10 +65,11 @@ public class ShoppingBasket {
         this.hasLoyaltyCard = true;
     }
 
-    public double calculateTotalValue() {
+    public double calculateTotalValueOfNonDiscountedItems() {
         for (Item item : items) {
             this.totalValue += item.getPrice();
         }
+
         return this.getTotalValue();
     }
 
@@ -106,9 +107,20 @@ public class ShoppingBasket {
     public double calculateTotalOfNormalAndDiscountedItems() {
 //        this.putDiscountItemsIntoSeparateList();
         double discounts = this.calculateDiscountItemsValue();
-        double normals = this.calculateTotalValue();
-        return discounts + normals;
+        double normals = this.calculateTotalValueOfNonDiscountedItems();
+        this.totalValue = discounts + normals;
+        return this.totalValue;
     }
 
+public double calculateTotalLessTenPercent() {
+        this.totalValue = 0.9 * this.calculateTotalOfNormalAndDiscountedItems();
+        return this.totalValue;
+}
+
+
+public double calculateTotalWithAllDiscounts() {
+        this.totalValue = 0.98 * this.calculateTotalLessTenPercent();
+        return this.totalValue;
+}
 
 }

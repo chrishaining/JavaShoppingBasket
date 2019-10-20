@@ -94,13 +94,15 @@ public class ShoppingBasketTest {
         shoppingBasket.addLoyaltyCard();
         assertEquals(true, shoppingBasket.checkLoyalty());
     }
-//
+
+//this test was obsolete once I factored in discounts
 //    @Test
 //    public void canCalculateTotalValueOfItemsWithOneItem() {
 //        shoppingBasket.addItem(cheese);
 //        assertEquals(3.50, shoppingBasket.calculateTotalValue(), 0.01);
 //    }
 //
+//    this test was obsolete once I factored in discounts
 //    //calculate total value with multiple items, as well as a removed item
 //    @Test
 //    public void canCalculateTotalValueOfItemsSeveralItems() {

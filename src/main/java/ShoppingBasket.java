@@ -78,8 +78,9 @@ public class ShoppingBasket {
         for (Item item : this.discountedItems) {
             int frequency = Collections.frequency(this.discountedItems, item);
             if (frequency > 1) {
-                totalValueOfDiscountedItems += (0.5 * item.getPrice());
-
+                if (frequency % 2 != 0) {
+                    totalValueOfDiscountedItems += ((0.5 * item.getPrice()) + 1);
+                } else {totalValueOfDiscountedItems += (0.5 * item.getPrice());}
             } else totalValueOfDiscountedItems += item.getPrice();
         }
         return totalValueOfDiscountedItems;

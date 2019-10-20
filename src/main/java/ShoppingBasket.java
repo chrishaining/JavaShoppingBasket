@@ -100,7 +100,9 @@ public class ShoppingBasket {
 
 
     public double calculateTotalWithAllDiscounts() {
-        this.totalValue = 0.98 * this.calculateTotalLessTenPercent();
+        if (this.getTotalValue() > 20) {
+        this.totalValue = 0.98 * this.calculateTotalLessTenPercent();}
+        else {this.totalValue = 0.98 * this.calculateTotalOfNormalAndDiscountedItems();}
         return this.totalValue;
     }
 

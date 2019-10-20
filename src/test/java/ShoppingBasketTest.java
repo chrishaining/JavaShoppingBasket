@@ -10,6 +10,8 @@ public class ShoppingBasketTest {
     Cheese cheese;
     Cheese poshCheese;
     Milk milk;
+    Milk poshMilk;
+
 
     @Before
     public void before() {
@@ -17,6 +19,7 @@ public class ShoppingBasketTest {
         cheese = new Cheese(3.50, true);
         poshCheese = new Cheese(7.50, false);
         milk = new Milk(1.20, false);
+        poshMilk = new Milk(3.10, false);
     }
 
     @Test
@@ -121,7 +124,7 @@ public class ShoppingBasketTest {
     }
 
     @Test
-    public void canCalculateTotalWithAllDiscounts() {
+    public void canCalculateTotalWithAllDiscountsUnder20() {
         shoppingBasket.addItem(cheese);
         shoppingBasket.addItem(poshCheese);
         shoppingBasket.addItem(milk);
@@ -129,6 +132,32 @@ public class ShoppingBasketTest {
         shoppingBasket.addItem(cheese);
         shoppingBasket.addItem(cheese);
         shoppingBasket.addItem(milk);
-        assertEquals(14.90, shoppingBasket.calculateTotalWithAllDiscounts(), 0.01);
+        assertEquals(16.56, shoppingBasket.calculateTotalWithAllDiscounts(), 0.01);
+    }
+
+    @Test
+    public void canCalculateTotalWithAllDiscountsOver20() {
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(poshCheese);
+        shoppingBasket.addItem(poshCheese);
+        shoppingBasket.addItem(milk);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(milk);
+        assertEquals(23.91, shoppingBasket.calculateTotalWithAllDiscounts(), 0.01);
+    }
+
+    @Test
+    public void canCalculateTotalWithAllDiscounts20() {
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(poshCheese);
+        shoppingBasket.addItem(milk);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(cheese);
+        shoppingBasket.addItem(milk);
+        shoppingBasket.addItem(poshMilk);
+        assertEquals(19.60, shoppingBasket.calculateTotalWithAllDiscounts(), 0.01);
     }
 }

@@ -101,9 +101,17 @@ public class ShoppingBasket {
 
     public double calculateTotalWithAllDiscounts() {
         if (this.getTotalValue() > 20) {
-        this.totalValue = 0.98 * this.calculateTotalLessTenPercent();}
-        else {this.totalValue = 0.98 * this.calculateTotalOfNormalAndDiscountedItems();}
+            if (this.checkLoyalty() == true) {
+        this.totalValue = 0.98 * this.calculateTotalLessTenPercent();} else {
+            this.totalValue = this.calculateTotalLessTenPercent();
+        }}
+        else if (this.getTotalValue() <= 20) {
+            if (this.checkLoyalty() == true) {this.totalValue = 0.98 * this.calculateTotalOfNormalAndDiscountedItems();
+            }
+            else {
+                this.totalValue = calculateTotalOfNormalAndDiscountedItems();
+            }
+        }
         return this.totalValue;
     }
-
 }
